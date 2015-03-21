@@ -1,0 +1,46 @@
+<head>
+    <title>Simple To Do</title>
+</head>
+
+<body>
+    <h1>Simple To Do App</h1> {{> todomain}}
+
+</body>
+
+
+
+
+<template name="todomain">
+    <h4>To Dos</h4>
+
+
+
+    <div class="collection col s6">
+        {{#each tasklist}}
+
+        <a class="collection-item avatar" data-id="{{_id}}" data-status="{{status}}">
+            {{#if status}}
+              <i class="small mdi-toggle-check-box square"></i>
+            
+            {{else}}
+             <i class="small mdi-toggle-check-box-outline-blank square"></i>
+            
+            {{/if}}
+            <span class="title">
+                {{task}}
+            </span>
+        </a> {{/each}}
+    </div>
+
+
+    <div class="row">
+
+        <form method="post" name="taskForm" id="taskForm">
+
+            <div class="input-field col s6">
+
+                <input type="text" name="task" id="task" placeholder="Your Task ..." autocomplete="off">
+            </div>
+        </form>
+    </div>
+</template>
